@@ -29,8 +29,8 @@ def _get_perf_configs(target: str, ylabel: str, modes: List[str] = ["full"]):
         perf_configs.append(
             triton.testing.Benchmark(
                 x_names=["N"],
-                x_vals=[2**i for i in range(10, 14)],
-                xlabel="Seq Length",
+                x_vals=[i* (2**12) for i in range(1, 5)],
+                xlabel="seq length",
                 line_arg="provider",
                 line_vals=["liger", "huggingface"],
                 line_names=["Liger", "Hugging Face"],

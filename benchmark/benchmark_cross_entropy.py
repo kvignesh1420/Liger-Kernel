@@ -12,7 +12,7 @@ from liger_kernel.transformers.cross_entropy import LigerCrossEntropyLoss
     [
         triton.testing.Benchmark(
             x_names=["V"],
-            x_vals=[2**i for i in range(12, 18)],
+            x_vals=[i*10* (2**12) for i in range(1, 5)],
             xlabel="vocab size",
             line_arg="provider",
             line_vals=["liger", "huggingface"],
@@ -30,7 +30,7 @@ from liger_kernel.transformers.cross_entropy import LigerCrossEntropyLoss
         ),
         triton.testing.Benchmark(
             x_names=["V"],
-            x_vals=[2**i for i in range(12, 18)],
+            x_vals=[i*10* (2**12) for i in range(1, 5)],
             xlabel="vocab size",
             line_arg="provider",
             line_vals=["liger", "huggingface"],
@@ -91,7 +91,7 @@ def benchmark_speed_cross_entropy_wrapper():
     [
         triton.testing.Benchmark(
             x_names=["V"],
-            x_vals=[2**i for i in range(12, 18)],
+            x_vals=[i*10* (2**12) for i in range(1, 5)],
             xlabel="vocab size",
             line_arg="provider",
             line_vals=["liger", "huggingface"],

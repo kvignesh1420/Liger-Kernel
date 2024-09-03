@@ -12,7 +12,7 @@ from liger_kernel.transformers.layer_norm import LigerLayerNorm
     [
         triton.testing.Benchmark(
             x_names=["N"],
-            x_vals=[2**i for i in range(10, 15)],
+            x_vals=[i* (2**12) for i in range(1, 5)],
             xlabel="hidden size",
             line_arg="provider",
             line_vals=["liger", "huggingface"],
@@ -24,7 +24,7 @@ from liger_kernel.transformers.layer_norm import LigerLayerNorm
         ),
         triton.testing.Benchmark(
             x_names=["N"],
-            x_vals=[2**i for i in range(10, 15)],
+            x_vals=[i* (2**12) for i in range(1, 5)],
             xlabel="hidden size",
             line_arg="provider",
             line_vals=["liger", "huggingface"],
@@ -91,7 +91,7 @@ def benchmark_speed_layer_norm_wrapper():
     [
         triton.testing.Benchmark(
             x_names=["N"],
-            x_vals=[2**i for i in range(10, 15)],
+            x_vals=[i* (2**12) for i in range(1, 5)],
             xlabel="hidden size",
             line_arg="provider",
             line_vals=["liger", "huggingface"],

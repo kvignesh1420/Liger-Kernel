@@ -29,7 +29,7 @@ class LlamaRMSNorm(nn.Module):
     [
         triton.testing.Benchmark(
             x_names=["N"],
-            x_vals=[2**i for i in range(10, 16)],
+            x_vals=[i* (2**12) for i in range(1, 5)],
             xlabel="hidden size",
             line_arg="provider",
             line_vals=["liger", "huggingface"],
@@ -41,7 +41,7 @@ class LlamaRMSNorm(nn.Module):
         ),
         triton.testing.Benchmark(
             x_names=["N"],
-            x_vals=[2**i for i in range(10, 16)],
+            x_vals=[i* (2**12) for i in range(1, 5)],
             xlabel="hidden size",
             line_arg="provider",
             line_vals=["liger", "huggingface"],
@@ -53,7 +53,7 @@ class LlamaRMSNorm(nn.Module):
         ),
         triton.testing.Benchmark(
             x_names=["N"],
-            x_vals=[2**i for i in range(10, 16)],
+            x_vals=[i* (2**12) for i in range(1, 5)],
             xlabel="hidden size",
             line_arg="provider",
             line_vals=["liger", "huggingface"],
@@ -125,7 +125,7 @@ def benchmark_speed_rms_norm_wrapper():
     [
         triton.testing.Benchmark(
             x_names=["N"],
-            x_vals=[2**i for i in range(10, 16)],
+            x_vals=[i* (2**12) for i in range(1, 5)],
             xlabel="hidden size",
             line_arg="provider",
             line_vals=["liger", "huggingface"],
